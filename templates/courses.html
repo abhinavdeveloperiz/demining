@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Python, Power BI & Data Analytics Training in Kollam | D-Mining{% endblock %}
+{% block meta_title %}Python, Power BI & Data Analytics Training in Kollam | D-Mining{% endblock %}
+{% block meta_keywords %}Python training Kollam{% endblock %}
+{% block meta_description %}Join D-Mining Kollam for Data Science, AI & Machine Learning courses with expert training, real projects, and certifications to advance your career.{% endblock %}
+
+
+
+{% block content %}
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5">
+  <div class="container text-center py-5">
+    <h1 class="display-2 text-white mb-4 animated slideInDown">Courses</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item">
+          <a href="#">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Courses</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- templates/courses.html -->
+<div class="container-fluid services py-5 mb-5">
+  <div class="container">
+    <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+      <h5 class="text-primary">Our Courses</h5>
+      <h1>Explore Our Courses</h1>
+    </div>
+    <div class="row g-5 services-inner">
+      {% for course in courses %}
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="{{ course.delay }}">
+        <div class="course-card bg-white h-100 shadow-sm rounded" data-bs-toggle="modal"
+          data-bs-target="{{ course.modal_target }}" style="cursor: pointer;">
+          <div class="position-relative">
+            <img src="{{ course.iimage.url }}" alt="{{ course.title }}" class="card-img-top"
+              style="width: 100%; height: 180px; object-fit: cover; border-top-left-radius: 0.25rem; border-top-right-radius: 0.25rem;" />
+            <div class="price-badge position-absolute" style="
+              top: 10px;
+              right: 10px;
+              background: #0B2243;
+              color: #fff;
+              padding: 0.5rem 1rem;
+              border-radius: 0.25rem;
+              font-weight: 500;
+              font-size: 0.9rem;">
+              ₹ {{ course.price }}
+            </div>
+          </div>
+          <div class="course-category bg-success text-white px-3 py-2">
+            <span>{{ course.category }}</span>
+          </div>
+          <div class="card-body text-center px-3">
+            <h5 class="card-title mb-3">{{ course.title }}</h5>
+            <div class="star-rating mb-3">
+              {% for i in "12345"|slice:":course.rating"|make_list %}
+              <i class="fas fa-star text-warning"></i>
+              {% endfor %}
+            </div>
+            <p class="text-muted small mb-4">
+              {{ course.short_description }}
+            </p>
+            <button class="btn btn-success btn-block">Enroll now</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% for modal in modals %}
+<!-- Modal -->
+<div class="modal fade" id="{{ modal.modal_id }}" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <div class="row align-items-center">
+          <!-- Left Section -->
+          <div class="col-md-6">
+            <h4 class="fw-bold mb-3">{{ modal.title }}</h4>
+            <p>{{ modal.description }}</p>
+            <div class="d-flex justify-content-between my-3">
+              <div>
+                <span class="text-warning fw-bold">⭐ {{ modal.rating }}</span>
+                <p class="mb-0 small text-muted">average course rating</p>
+              </div>
+
+              <div>
+                <span class="fw-bold">{{ modal.exercises }}</span>
+                <p class="mb-0 small text-muted">practice exercises</p>
+              </div>
+              <div>
+                <span class="fw-bold">{{ modal.duration }}</span>
+                <p class="mb-0 small text-muted">hours of content</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary fw-bold mb-2">Start subscription</a>
+            <p class="mb-0 text-muted small">👥 <strong>{{ modal.learners }} k</strong> learners already enrolled</p>
+          </div>
+
+          <!-- Right Section (Image) -->
+          <div class="col-md-6">
+            <img src="{{ modal.image.url }}" alt="{{ modal.title }}" class="img-fluid rounded" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

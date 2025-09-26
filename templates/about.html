@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+
+{% block title %}About D-Mining India | Data Science Institute Kerala{% endblock %}
+{% block meta_title %}About D-Mining India | Data Science Institute Kerala{% endblock %}
+{% block meta_keywords %}Data Science institute Kerala{% endblock %}
+{% block meta_description %}D-Mining India is Kerala's top institute for Data Science, AI & ML. Learn from experts and gain industry-ready skills to boost your career.{% endblock %}
+
+
+
+
+
+{% block content %}
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5">
+  <div class="container text-center py-5">
+    <h1 class="display-2 text-white mb-4 animated slideInDown">About Us</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item">
+          <a href="#">Home</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">About</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- About Start -->
+<div class="container-fluid py-5 my-5">
+  <div class="container pt-5">
+    <div class="row g-5 align-items-center">
+      <!-- Image Section -->
+      <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+        <div class="h-100 position-relative">
+          <img
+            src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            class="img-fluid w-75 rounded" alt="Main Image" style="margin-bottom: 25%;" />
+          <div class="position-absolute w-75" style="top: 25%; left: 25%;">
+            <img
+              src="https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="img-fluid w-100 rounded" alt="Overlay Image" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Content Section -->
+      <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+        <h5 class="text-primary">Welcome to D-Mining</h5>
+        <h1 class="mb-4">Shaping Your Future with Flexible Online Learning & Smart Tech Solutions</h1>
+        <p>
+          At <strong>D-Mining</strong>,we believe the future belongs to those who leverage the power of data, machine
+          learning, and AI solutions. We are more than an online training institute—we are your gateway to digital
+          transformation. In today’s digital world, data analytics and data mining are not just numbers—they are the
+          keys to innovation, efficiency, and smarter decision-making.
+        </p>
+        <p>Our mission is to make cutting-edge technology, AI-driven learning, and sustainable tech solutions
+          accessible, practical, and empowering for all—whether you’re looking for the best machine learning
+          certification, leading online data science courses, or advanced AI solutions for business growth.</p>
+        <p>With strong expertise in data analytics, data science, and artificial intelligence, we empower individuals to
+          transform their skills into rewarding tech careers. For businesses, we provide data mining services, digital
+          mining tools, mining automation, and smart tech solutions that convert insights into decisions and innovation
+          into measurable impact.
+        </p>
+        <p>
+          Whether you’re a student aiming for your first breakthrough, a professional transitioning into tech, or a
+          business leader seeking AI-driven growth, D-Mining is your trusted partner in progress.
+        </p>
+        <p class="mb-4">Learn boldly. Innovate wisely. Grow continuously—with D-Mining by your side.</p>
+        <!-- <a href="#" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Know More</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About End -->
+
+<!-- Testimonial Start -->
+<div class="container-fluid testimonial py-5 mt-5">
+  <div class="container">
+    <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+      <h5 class="text-primary">Our Testimonial</h5>
+      <h1>What Our Learners Say</h1>
+    </div>
+    <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
+      {% for t in testimonials %}
+      <div class="testimonial-item border p-4">
+        <div class="d-flex align-items-center">
+          <div class="">
+            <img src="{{ t.image.url }}" alt="{{ t.name }}" />
+          </div>
+          <div class="ms-4">
+            <h4 class="text">{{ t.name }}</h4>
+            <p class="m-0 pb-3">{{ t.role }}</p>
+            <div class="d-flex pe-5">
+              {% for i in "12345"|slice:":t.rating"|make_list %}
+              <i class="fas fa-star me-1 text-primary"></i>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="border-top mt-4 pt-3">
+          <p class="mb-0">{{ t.feedback }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- Testimonial End -->
+{% endblock %}
