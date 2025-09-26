@@ -16,6 +16,8 @@ ALLOWED_HOSTS = [
     'www.dmining.in',
     'localhost',
     '127.0.0.1',
+    'www.demining.onrender.com',
+    'demining.onrender.com',
 ]
 
 
